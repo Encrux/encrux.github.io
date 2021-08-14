@@ -8,14 +8,10 @@
 </head>
 <body>
 <div id="container">
-
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<input type="checkbox" name="love" value="love" id="love"><label for="love"> Check	</label>
-		<a href="#">About</a>
-		<a href="#">Services</a>
-		<a href="#">Clients</a>
-		<a href="#">Contact</a>
+		<input type="checkbox" name="love" value="love" id="enable_gravity"><label for="enable_gravity"> enable gravity	</label><br>
+		<input type="range" min="0" max="3" step="0.1" value="1" id="gravity_strength"><label for="gravity_strength"> gravity strength </label>
 	</div>
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 	<script>

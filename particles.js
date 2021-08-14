@@ -4,6 +4,9 @@ canvas.height = window.innerHeight;
 const context = canvas.getContext('2d');
 const particles = [];
 
+var enableGravity = false;
+var gravityStrength = 1;
+
 var mouseX = 0;
 var mouseY = 0;
 var mousedown = false;
@@ -15,7 +18,7 @@ function random (min, max) {
 }
 
 function draw() {
-    console.log(mousedown);
+    console.log(enableGravity);
 
     const particle = {
         x: mouseX,
@@ -40,7 +43,11 @@ function draw() {
         context.fillStyle = p.color;
         context.fillRect(p.x, p.y, p.size, p.size);
         p.x += p.xvel;
-        p.y -= p.yvel;
+        p.y += p.yvel;
+
+        if (enableGravity) {
+            p.yvel += 0.1 * gravityStrength;
+        }
     }
 
     window.requestAnimationFrame(draw);
@@ -80,5 +87,13 @@ function initEventListeners(canvas) {
         const cRect = canvas.getBoundingClientRect();
         mouseX = Math.round(touch.clientX - cRect.left);
         mouseY = Math.round(touch.clientY - cRect.top);
+    })
+
+    document.getElementById("enable_gravity").addEventListener("change", function () {
+        enableGravity = !enableGravity;
+    })
+
+    document.getElementById("gravity_strength").addEventListener("change", function () {
+        gravityStrength = document.getElementById("gravity_strength").value;
     })
 }
