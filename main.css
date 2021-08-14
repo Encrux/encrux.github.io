@@ -106,10 +106,8 @@ body {
     font-size: 25px;
     color: #818181;
     transition: 0.3s;
-    margin-bottom: 5000px;
 }
 
 .sidenav input[type=range]::-ms-tooltip {
-    display: none;
-    margin-bottom: 50000px;
+    margin-bottom: 200px;
 }
