@@ -2,10 +2,14 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    overflow: hidden;
+}
 
 body {
     overflow: hidden;
     background: #4f4f4f;
+    position: relative;
 }
 
 #canvas {
