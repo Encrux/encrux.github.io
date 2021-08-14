@@ -8,33 +8,35 @@
 <body>
 <div id="container">
 	<canvas id="canvas" width="100%" height="100%"></canvas>
-	<div style="text-align: left;margin-top:10%">
-		<div class="onoffswitch">
-			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
-			<label class="onoffswitch-label" for="myonoffswitch1">
-				<div class="onoffswitch-inner">
-					<div class="onoffswitch-active">
-						<div class="onoffswitch-switch">ON</div>
+	<div class="setting">
+		<div style="text-align: left;margin-top:10%">
+			<div class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1">
+				<label class="onoffswitch-label" for="myonoffswitch1">
+					<div class="onoffswitch-inner">
+						<div class="onoffswitch-active">
+							<div class="onoffswitch-switch">ON</div>
+						</div>
+						<div class="onoffswitch-inactive">
+							<div class="onoffswitch-switch">OFF</div>
+						</div>
 					</div>
-					<div class="onoffswitch-inactive">
-						<div class="onoffswitch-switch">OFF</div>
+				</label>
+			</div>
+			<br><br>
+			<div class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+				<label class="onoffswitch-label" for="myonoffswitch2">
+					<div class="onoffswitch-inner">
+						<div class="onoffswitch-active">
+							<div class="onoffswitch-switch">ON</div>
+						</div>
+						<div class="onoffswitch-inactive">
+							<div class="onoffswitch-switch">OFF</div>
+						</div>
 					</div>
-				</div>
-			</label>
-		</div>
-		<br><br>
-		<div class="onoffswitch">
-			<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
-			<label class="onoffswitch-label" for="myonoffswitch2">
-				<div class="onoffswitch-inner">
-					<div class="onoffswitch-active">
-						<div class="onoffswitch-switch">ON</div>
-					</div>
-					<div class="onoffswitch-inactive">
-						<div class="onoffswitch-switch">OFF</div>
-					</div>
-				</div>
-			</label>
+				</label>
+			</div>
 		</div>
 	</div>
 	<script src="particles.js"></script>
