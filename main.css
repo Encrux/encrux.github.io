@@ -66,10 +66,12 @@ body {
     color: #818181;
     display: block;
     transition: 0.3s;
+    overflow-x: hidden;
 }
 
 .sidenav a:hover {
     color: #f1f1f1;
+    overflow-x: hidden;
 }
 
 .sidenav .closebtn {
@@ -78,9 +80,10 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    overflow-x: hidden;
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+    .sidenav {padding-top: 25px;}
     .sidenav a {font-size: 18px;}
 }
