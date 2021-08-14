@@ -4,21 +4,43 @@ canvas.height = window.innerHeight;
 const context = canvas.getContext('2d');
 const particles = [];
 
+var mouseX = 0;
+var mouseY = 0;
+var mousedown = false
+
+canvas.addEventListener("mousemove", function(e) {
+    var cRect = canvas.getBoundingClientRect();        // Gets CSS pos, and width/height
+    mouseX = Math.round(e.clientX - cRect.left);  // Subtract the 'left' of the canvas
+    mouseY = Math.round(e.clientY - cRect.top);   // from the X/Y positions to make
+});
+
+canvas.addEventListener("mousedown", function (e) {
+    mousedown = true
+})
+
+canvas.addEventListener("mouseup", function (e) {
+    mousedown = false
+})
+
 function random (min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function draw() {
+function draw(evt) {
+
+    console.log(mousedown)
     const particle = {
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        xvel: Math.random() * 2,
-        yvel: Math.random() * 2,
+        x: mouseX,
+        y: mouseY,
+        xvel: random(-1,1),
+        yvel: random(-1,1),
         color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`,
         size: 7,
     };
 
-    particles.push(particle);
+    if (mousedown) {
+        particles.push(particle);
+    }
 
     if (particles.length > 200) {
         particles.shift();
@@ -34,6 +56,15 @@ function draw() {
     }
 
     window.requestAnimationFrame(draw);
+
+}
+
+function getMousePos(canvas, evt) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    }
 }
 
 window.requestAnimationFrame(draw);
