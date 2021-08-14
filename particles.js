@@ -6,29 +6,15 @@ const particles = [];
 
 var mouseX = 0;
 var mouseY = 0;
-var mousedown = false
+var mousedown = false;
 
-canvas.addEventListener("mousemove", function(e) {
-    var cRect = canvas.getBoundingClientRect();        // Gets CSS pos, and width/height
-    mouseX = Math.round(e.clientX - cRect.left);  // Subtract the 'left' of the canvas
-    mouseY = Math.round(e.clientY - cRect.top);   // from the X/Y positions to make
-});
-
-canvas.addEventListener("mousedown", function (e) {
-    mousedown = true
-})
-
-canvas.addEventListener("mouseup", function (e) {
-    mousedown = false
-})
+initEventListeners(canvas);
 
 function random (min, max) {
     return Math.random() * (max - min) + min;
 }
 
 function draw(evt) {
-
-    console.log(mousedown)
     const particle = {
         x: mouseX,
         y: mouseY,
@@ -59,12 +45,37 @@ function draw(evt) {
 
 }
 
-function getMousePos(canvas, evt) {
-    const rect = canvas.getBoundingClientRect();
-    return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-    }
-}
-
 window.requestAnimationFrame(draw);
+
+function initEventListeners(canvas) {
+    canvas.addEventListener("mousemove", function(e) {
+        const cRect = canvas.getBoundingClientRect();        // Gets CSS pos, and width/height
+        mouseX = Math.round(e.clientX - cRect.left);  // Subtract the 'left' of the canvas
+        mouseY = Math.round(e.clientY - cRect.top);   // from the X/Y positions to make
+    });
+
+    canvas.addEventListener("mousedown", function () {
+        mousedown = true;
+    })
+
+    canvas.addEventListener("mouseup", function () {
+        mousedown = false;
+    })
+
+    canvas.addEventListener("touchstart", function () {
+        mousedown = true;
+    })
+
+    canvas.addEventListener("touchend", function () {
+        mousedown = false;
+    })
+
+    canvas.addEventListener("touchmove", function (e) {
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        })
+        canvas.dispatch(mouseEvent);
+    })
+}
