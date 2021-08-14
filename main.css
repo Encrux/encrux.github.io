@@ -48,7 +48,7 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 25%;
+    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -106,9 +106,10 @@ body {
     font-size: 25px;
     color: #818181;
     transition: 0.3s;
+    margin-bottom: 5000px;
 }
 
 .sidenav input[type=range]::-ms-tooltip {
     display: none;
-    margin-left: 20px;
+    margin-bottom: 50000px;
 }
