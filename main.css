@@ -87,3 +87,20 @@ body {
     .sidenav {padding-top: 25px;}
     .sidenav a {font-size: 18px;}
 }
+
+.sidenav input[type=checkbox] {
+    -ms-transform: scale(3); /* IE */
+    -moz-transform: scale(3); /* FF */
+    -webkit-transform: scale(3); /* Safari and Chrome */
+    -o-transform: scale(3); /* Opera */
+    width: 85px;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.sidenav label {
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    transition: 0.3s;
+}
