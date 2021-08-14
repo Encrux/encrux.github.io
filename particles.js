@@ -77,9 +77,8 @@ function initEventListeners(canvas) {
     canvas.addEventListener("touchmove", function (e) {
         if (e.target === canvas) e.preventDefault();
         const touch = e.touches[0];
-        canvas.dispatch(new MouseEvent("mousemove", {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        }));
+        const cRect = canvas.getBoundingClientRect();
+        mouseX = Math.round(touch.clientX - cRect.left);
+        mouseY = Math.round(touch.clientY - cRect.top);
     })
 }
