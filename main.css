@@ -149,3 +149,10 @@ body {
 #infoi {
     z-index: 10;
 }
+
+@media(max-width: 767px) {
+    a.sqs-block-button-element {
+        padding: 0.8em 0.3em !important;
+        display: inline-block;
+    }
+}
