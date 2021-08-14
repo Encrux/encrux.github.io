@@ -14,7 +14,9 @@ function random (min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function draw(evt) {
+function draw() {
+    console.log(mousedown);
+
     const particle = {
         x: mouseX,
         y: mouseY,
@@ -72,10 +74,9 @@ function initEventListeners(canvas) {
 
     canvas.addEventListener("touchmove", function (e) {
         const touch = e.touches[0];
-        const mouseEvent = new MouseEvent("mousemove", {
+        canvas.dispatch(new MouseEvent("mousemove", {
             clientX: touch.clientX,
             clientY: touch.clientY
-        })
-        canvas.dispatch(mouseEvent);
+        }));
     })
 }
