@@ -64,15 +64,18 @@ function initEventListeners(canvas) {
         mousedown = false;
     })
 
-    canvas.addEventListener("touchstart", function () {
+    canvas.addEventListener("touchstart", function (e) {
+        if (e.target === canvas) e.preventDefault();
         mousedown = true;
     })
 
-    canvas.addEventListener("touchend", function () {
+    canvas.addEventListener("touchend", function (e) {
+        if (e.target === canvas) e.preventDefault();
         mousedown = false;
     })
 
     canvas.addEventListener("touchmove", function (e) {
+        if (e.target === canvas) e.preventDefault();
         const touch = e.touches[0];
         canvas.dispatch(new MouseEvent("mousemove", {
             clientX: touch.clientX,
